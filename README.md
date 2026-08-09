@@ -230,3 +230,65 @@ Troubleshooting included resolving:
 - Connectivity troubleshooting
 - Client workstation configuration
 - Domain support workflows
+
+---
+
+# Lab Progress
+
+## Session 1 - Company Setup
+
+### Company Environment
+
+A fictional company named **Northwind Manufacturing** was created to simulate a real enterprise Active Directory environment.
+
+### Organizational Units (OUs)
+
+The following departments were created:
+
+- Human Resources
+- Finance
+- Sales
+- Information Technology
+- Operations
+
+### User Accounts
+
+The following domain users were created:
+
+| User | Department |
+|------|------------|
+| Sarah Johnson | Human Resources |
+| Michael Carter | Finance |
+| Emily Davis | Sales |
+| Alex Martinez | Information Technology |
+| James Wilson | Operations |
+
+### Security Groups
+
+Created:
+
+- HelpDesk_Technicians
+
+### Help Desk Tasks Completed
+
+- Reset a user's password in Active Directory.
+- Verified successful domain authentication.
+- Configured the Default Domain Policy account lockout settings.
+- Created the company shared folder structure.
+- Began configuring the Finance department shared folder.
+
+---
+
+# Current Status
+
+✅ Company environment created
+
+✅ Active Directory users created
+
+✅ Security group created
+
+✅ Password reset completed
+
+✅ Account Lockout Policy configured
+
+🚧 Finance shared folder configuration in progress
