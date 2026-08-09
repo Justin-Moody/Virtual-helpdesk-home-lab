@@ -1,72 +1,41 @@
 # Virtual Help Desk Home Lab
 
 ## Overview
-This project documents my self-built virtual IT help desk lab used to practice Tier 1 support, Active Directory administration, Windows troubleshooting, networking, and documentation.
 
-## Objectives
-- Build a Windows domain environment
-- Practice Active Directory administration
-- Simulate help desk tickets
-- Troubleshoot Windows issues
-- Practice documentation and escalation notes
+This project documents the creation of a virtual enterprise IT help desk environment using Windows Server 2022 and Windows 11.
+
+The lab simulates a real business environment where Active Directory manages users, computers, authentication, DNS, Group Policy, file sharing, and common IT support tasks.
+
+The project is divided into three enterprise-style labs that build upon one another.
+
+- **Lab 1:** Active Directory Infrastructure
+- **Lab 2:** Enterprise Help Desk Operations
+- **Lab 3:** Windows & Network Troubleshooting
+
+---
+
+# Objectives
+
+- Build an enterprise Windows domain
+- Configure Active Directory Domain Services
+- Practice Windows Server administration
+- Simulate real-world IT support scenarios
+- Troubleshoot Windows and networking issues
 - Develop hands-on IT support experience
+- Document troubleshooting procedures and solutions
 
-## Technologies Used
-- Oracle VirtualBox / VMware
+---
+
+# Technologies Used
+
+- Oracle VirtualBox
 - Windows Server 2022
-- Windows 10/11
-- Active Directory
+- Windows 11
+- Active Directory Domain Services (AD DS)
 - DNS
 - DHCP
 - Group Policy
 - PowerShell
-
-## Planned Lab Systems
-| System | Purpose |
-|---|---|
-| DC01 | Domain Controller |
-| CLIENT01 | Help Desk Workstation |
-| CLIENT02 | End User Workstation |
-| TICKET01 | Ticketing System |
-
-## Skills Practiced
-- Password resets
-- Account unlocks
-- Group Policy
-- Network troubleshooting
-- Remote desktop support
-- Shared folder permissions
-- DNS troubleshooting
-- DHCP troubleshooting
-- Windows administration
-
-## Ticket Documentation
-Future tickets and troubleshooting exercises will be documented here.
-
-## Screenshots
-Screenshots will be added throughout the project.
-
-## Lessons Learned
-This section will be updated as the lab expands.
-
----
-
-# Active Directory Home Lab Build
-
-## Lab Objective
-
-The objective of this lab was to build a functional enterprise-style Active Directory environment using Windows Server 2022 and Windows 11 within Oracle VirtualBox.
-
-The lab simulates a small corporate environment where a domain controller manages authentication, users, groups, DNS, and domain-joined client systems.
-
-This project was built to strengthen hands-on skills related to:
-- Active Directory administration
-- Windows Server management
-- DNS configuration
-- Client domain joins
-- Network troubleshooting
-- Virtualization
-- Help desk support workflows
 
 ---
 
@@ -75,7 +44,7 @@ This project was built to strengthen hands-on skills related to:
 | System | Role | IP Address |
 |---|---|---|
 | DC01 | Domain Controller | 192.168.10.10 |
-| CLIENT01 | Domain Client Workstation | 192.168.10.20 |
+| CLIENT01 | Domain Workstation | 192.168.10.20 |
 
 ---
 
@@ -90,11 +59,24 @@ This project was built to strengthen hands-on skills related to:
 
 ---
 
-# Step 1 – Virtual Lab Environment
+# ==========================================
+# LAB 1 – ACTIVE DIRECTORY INFRASTRUCTURE
+# ==========================================
 
-A virtual lab environment was created using Oracle VirtualBox. Two virtual machines were deployed:
+## Objective
+
+Build a functional enterprise Active Directory environment that will be used throughout the remaining labs.
+
+---
+
+## Step 1 – Virtual Lab Environment
+
+A virtual lab environment was created using Oracle VirtualBox.
+
+Virtual machines deployed:
+
 - DC01 (Windows Server 2022)
-- CLIENT01 (Windows 11 Enterprise)
+- CLIENT01 (Windows 11)
 
 Both systems were connected using a Host-Only Adapter network to simulate an isolated enterprise environment.
 
@@ -102,15 +84,16 @@ Both systems were connected using a Host-Only Adapter network to simulate an iso
 
 ---
 
-# Step 2 – Windows Server 2022 Domain Controller Setup
+## Step 2 – Windows Server 2022 Domain Controller Setup
 
-Windows Server 2022 was installed and configured as the domain controller for the lab environment.
+Windows Server 2022 was installed and promoted as the Domain Controller.
 
-Installed roles included:
+Installed Roles:
+
 - Active Directory Domain Services (AD DS)
 - DNS Server
 
-The domain created for the environment was:
+Domain Created:
 
 ```powershell
 homelab.local
@@ -120,130 +103,103 @@ homelab.local
 
 ---
 
-# Step 3 – Active Directory Configuration
+## Step 3 – Active Directory Configuration
 
-Active Directory Users and Computers was configured with Organizational Units (OUs), users, and security groups to simulate a real business environment.
+Configured Active Directory Users and Computers.
 
-Organizational Units created:
+Created:
+
+- Organizational Units (OUs)
+- Users
+- Security Groups
+
+Example:
+
 - IT
 - Employees
 - Workstations
-
-Example accounts and groups:
-- Daniel Reyes
-- HelpDesk_Admins
 
 ![AD Users and Computers](screenshots/active-directory-home-lab/03-active-directory-users-and-computers.png)
 
 ---
 
-# Step 4 – Network Connectivity Testing
+## Step 4 – Network Connectivity Testing
 
-Connectivity between CLIENT01 and the domain controller was verified using ICMP ping tests.
+Verified communication between CLIENT01 and DC01 using ICMP ping.
 
-This confirmed:
-- network communication
+Confirmed:
+
+- Network connectivity
 - DNS functionality
-- VM connectivity
+- Virtual machine communication
 
 ![Ping Test](screenshots/active-directory-home-lab/04-successful-ping-test.png)
 
 ---
 
-# Step 5 – Domain Join Configuration
+## Step 5 – Domain Join Configuration
 
-CLIENT01 was successfully joined to the:
+CLIENT01 successfully joined:
 
 ```powershell
 homelab.local
 ```
 
-domain.
-
-This allowed centralized authentication through Active Directory.
+Verified centralized authentication through Active Directory.
 
 ![Domain Join](screenshots/active-directory-home-lab/05-domain-join-success.png)
 
 ---
 
-# Step 6 – Domain Authentication Testing
+## Step 6 – Domain Authentication Testing
 
-Domain login authentication was tested successfully using a domain user account.
+Verified successful domain authentication.
 
-This confirmed:
+Confirmed:
+
 - Active Directory authentication
 - DNS resolution
-- domain communication
-- successful client integration
+- Domain communication
 
 ![Whoami Authentication](screenshots/active-directory-home-lab/07-domain-user-authentication.png)
 
 ---
 
-# Step 7 – Client Network Configuration
+## Step 7 – Client Network Configuration
 
-CLIENT01 was configured with:
-- static IP addressing
-- subnet mask
-- DNS configuration
-- gateway configuration
+Configured:
 
-Troubleshooting included resolving:
+- Static IP Address
+- DNS Server
+- Subnet Mask
+
+Troubleshooting included:
+
 - APIPA addressing
-- connectivity failures
-- firewall communication issues
+- Connectivity failures
+- Firewall communication
 
 ![Client Network Configuration](screenshots/active-directory-home-lab/08-client-network-configuration.png)
 
 ---
 
-# Skills Demonstrated
+# ==========================================
+# LAB 2 – ENTERPRISE HELP DESK OPERATIONS
+# ==========================================
 
-## Windows Server Administration
-- Active Directory installation
-- Domain controller promotion
-- DNS configuration
-- Server management
+## Objective
 
-## Networking
-- Static IP configuration
-- DNS troubleshooting
-- Ping testing
-- Network troubleshooting
-- Firewall troubleshooting
-
-## Active Directory
-- OU management
-- User management
-- Group management
-- Domain joins
-- Domain authentication
-
-## Virtualization
-- Oracle VirtualBox
-- Virtual networking
-- Host-only adapters
-- Multi-VM environments
-
-## Help Desk / IT Support
-- Troubleshooting methodology
-- Connectivity troubleshooting
-- Client workstation configuration
-- Domain support workflows
+Use the Active Directory environment created in Lab 1 to simulate the daily responsibilities of a Tier 1 IT Support Technician.
 
 ---
 
-# Lab Progress
+## Company Environment
 
-## Session 1 - Company Setup
+**Company Name**
 
-### Company Environment
+Northwind Manufacturing
 
-A fictional company named **Northwind Manufacturing** was created to simulate a real enterprise Active Directory environment.
-
-### Organizational Units (OUs)
-
-The following departments were created:
+### Departments
 
 - Human Resources
 - Finance
@@ -251,12 +207,16 @@ The following departments were created:
 - Information Technology
 - Operations
 
-### User Accounts
+### Domain
 
-The following domain users were created:
+```powershell
+homelab.local
+```
+
+### Users
 
 | User | Department |
-|------|------------|
+|---|---|
 | Sarah Johnson | Human Resources |
 | Michael Carter | Finance |
 | Emily Davis | Sales |
@@ -265,30 +225,102 @@ The following domain users were created:
 
 ### Security Groups
 
-Created:
-
 - HelpDesk_Technicians
-
-### Help Desk Tasks Completed
-
-- Reset a user's password in Active Directory.
-- Verified successful domain authentication.
-- Configured the Default Domain Policy account lockout settings.
-- Created the company shared folder structure.
-- Began configuring the Finance department shared folder.
 
 ---
 
-# Current Status
+## Help Desk Scenarios
 
-✅ Company environment created
+### HD-001 – Password Reset ✅
 
-✅ Active Directory users created
+Completed Tasks
 
-✅ Security group created
+- Reset user password
+- Required password change at next logon
+- Verified successful domain authentication
 
-✅ Password reset completed
+*(Screenshot will be added.)*
 
-✅ Account Lockout Policy configured
+---
 
-🚧 Finance shared folder configuration in progress
+### HD-002 – Finance Shared Folder 🚧
+
+Current Progress
+
+- Created company folder structure
+- Created department folders
+- Began configuring Finance shared folder
+
+*(Screenshots will be added.)*
+
+---
+
+### Upcoming Scenarios
+
+- HD-003 – New Employee Onboarding
+- HD-004 – Account Lockout
+- HD-005 – Group Membership Management
+- HD-006 – Shared Folder Permissions
+- HD-007 – Group Policy Administration
+- HD-008 – Windows Administration
+
+---
+
+# ==========================================
+# LAB 3 – WINDOWS & NETWORK TROUBLESHOOTING
+# ==========================================
+
+## Objective
+
+Practice diagnosing and resolving common Windows and network issues in an enterprise environment.
+
+### Planned Scenarios
+
+- DNS Troubleshooting
+- DHCP Troubleshooting
+- Printer Troublesbleshooting
+- Event Viewer Analysis
+- Windows Services
+- Remote Desktop (RDP)
+- PowerShell Diagnostics
+- Network Connectivity Troubleshooting
+
+---
+
+# Skills Demonstrated
+
+## Windows Server
+
+- Active Directory Administration
+- Domain Controller Management
+- DNS Configuration
+- Group Policy Administration
+
+## Active Directory
+
+- Organizational Unit (OU) Management
+- User Management
+- Security Group Management
+- Password Resets
+- Domain Authentication
+
+## Networking
+
+- Static IP Configuration
+- DNS Troubleshooting
+- Network Connectivity Testing
+- Windows Networking
+
+## Help Desk
+
+- Password Resets
+- User Administration
+- Shared Folder Management
+- Windows Troubleshooting
+- Documentation
+
+---
+
+# Lessons Learned
+
+This project will continue to expand as additional enterprise IT support scenarios and troubleshooting exercises are completed.
