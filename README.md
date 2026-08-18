@@ -239,19 +239,23 @@ Completed Tasks
 - Required password change at next logon
 - Verified successful domain authentication
 
-*(Screenshot will be added.)*
+![Sarah Domain Login](screenshots/enterprise-help-desk-operations/10-sarah-domain-login.png)
 
 ---
 
-### HD-002 – Finance Shared Folder 🚧
+### HD-002 – Finance Shared Folder Access ✅
 
-Current Progress
+### Tasks Completed
 
-- Created company folder structure
-- Created department folders
-- Began configuring Finance shared folder
+- Created the Finance shared folder
+- Configured network share permissions
+- Configured NTFS permissions for the Finance user
+- Tested access from CLIENT01 as Michael Carter
+- Identified an Access Denied issue caused by Read-only share permissions
+- Updated share permissions to allow Change and Read
+- Verified Michael could create, edit, save, and reopen files
 
-*(Screenshots will be added.)*
+![Finance Shared Folder Access](screenshots/enterprise-help-desk-operations/14-finance-shared-folder-access.png)
 
 ---
 
